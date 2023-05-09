@@ -1,0 +1,141 @@
+.header {
+  height: var(--header-height);
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include mid;
+  z-index: 1000;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+  .logo {
+    height: 100%;
+    h1 {
+      &.hidden {
+        display: none;
+      }
+    }
+    img {
+      height: 100%;
+    }
+  }
+  .contact {
+    @include mid(false);
+    @include mid;
+    gap: 160px;
+    &__email,
+    &__phone {
+      display: block;
+      text-decoration: none;
+      gap: 15px;
+      @include mid;
+      &:hover {
+        p {
+          color: var(--cl-primary);
+        }
+      }
+      &-text {
+        h3 {
+          @include text(db, var(--fz-header), var(--lh-header), var(--cl-blue), none, none);
+        }
+        p {
+          --fz-header: 1.7rem;
+          @include text(dr, var(--fz-header), var(--lh-header), var(--cl-black), none, none);
+          @include transition($time);
+        }
+      }
+    }
+  }
+  .social {
+    @include mid;
+    gap: 5px;
+    &__fb,
+    &__tw,
+    &__gg,
+    &__linkend,
+    &__email {
+      border: 1px solid var(--cl-primary);
+      width: 28px;
+      height: 28px;
+      @include mid;
+      cursor: pointer;
+      border-radius: 5px;
+      @include transition($time);
+      &:hover {
+        background-color: var(--cl-blue);
+      }
+    }
+  }
+  .container-fluid {
+  }
+
+  @include md {
+    .contact {
+      gap: 50px;
+    }
+  }
+  @include sm {
+    .container {
+      @include mid(false);
+    }
+    .contact {
+      gap: 20px;
+      &__email,
+      &__phone {
+        gap: 8px;
+        &-text {
+          p {
+            --fz-header: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  @include xs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--cl-blue);
+    .logo {
+      height: 50px;
+    }
+    .contact {
+      display: none;
+    }
+    .social {
+      &__fb,
+      &__tw,
+      &__gg,
+      &__linkend,
+      &__email {
+        height: 20px;
+        width: 20px;
+        img {
+          height: 12px;
+          width: 12px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+  @include xxs {
+    .logo {
+      height: 40px;
+    }
+  }
+}

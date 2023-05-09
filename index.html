@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podiatrist</title>
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico">
+    <!--  Meta tag GG -->
+    <meta name="title" content="Trang chủ - CFD Circle - Học viện đào tạo lập trình frontend thực chiến" />
+    <meta name="decription"
+        content="CFD Circle là học viện đào tạo lập trình frontend thực chiến, cung cấp các khoá học frontend từ cơ bản đến nâng cao nhằm kết nối và chia sẻ kinh nghiệm cùng đội ngũ giảng viên tâm huyết." />
+    <meta name="keyword"
+        content="khoa hoc frontend vue js, vue js, khoa hoc vue js, vuejs master, khoa hoc frontend cho nguoi moi, khoa hoc lap trinh, frontend, khoa hoc frontend, lap trinh front end, hoc lap trinh front end o dau, trung tam lap trinh frontend, front end, review trung tam day lap trinh, dạy lập trình front end, trung tâm dạy lập trinh ở tphcm, dạy lập trình frontend ở tphcm, khoá học front end tai tphcm, nên học lập trình ở đâu, cfd circle, web responsive, react js, lap trinh front-end, lap trinh frontend, lập trình frontend, cfd, cfd training, cfdcircle, newbie, vue js, css, html, lộ trình học frontend, hoc react js, khoa hoc react js, lo trinh hoc react js, lap trinh cho nguoi trai nganh, cfd studio, tran nghia, tran nghia cfd, trannghia, khoa hoc lap trinh frontend, hoc lap trinh tphcm, trung tam day lap trinh, trung tâm dạy lập trình, html, css, scss, css3, flexbox, api, khoa hoc lap trinh mien phi, redux, lo trinh hoc frontend, front end, front-end, tuyen dung frontend dev, tuyen dung it, vue js, khoa hoc lap trinh mien phi, khoa hoc lap trinh online, hoc lap trinh online, lap trinh frontend tphcm, cac khoa hoc frontend co phí, khoa hoc front end mien phi, thiet ke website mien phi, hoc thiet ke web, thiet ke web, web animation, hieu ung web,  tuyen dung it, tuyen dung frontend dev, doi tac cfd circle, giang vien cfd, tuyen dung backend, lap trinh vue js, vue js master, hoc vue js," />
+    <meta name="csrf-token" content="" />
+    <!-- meta tag Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+    <meta property="twitter:description" content="">
+    <meta property="twitter:image" content="">
+    <meta property="twitter:url" content="">
+    <!-- Meta tag FB -->
+    <meta property="og:locale" content="vi" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image"
+        content="https://cfdcircle.vn/files/thumbnails/8H13pIZXqFYMKY5tlsjtzRbreRLbwQKZN3KxU7BD.jpg" />
+    <meta property="og:site_name" content="https://cfdcircle.vn" />
+    <meta property="og:url" content="" />
+
+    <!-- youtube -->
+    <!-- <iframe src="" frameborder="0"></iframe> -->
+    <link rel="stylesheet" href="./dest/style.min.css">
+    <link rel="stylesheet" href="./dest/font.css">
+    <link rel="stylesheet" href="./dest/stylelibs.min.css">
+    <style>
+        .loading {
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            background-color: var(--cl-blue);
+            z-index: 10000;
+        }
+
+        .lds-ripple {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .lds-ripple div {
+            position: absolute;
+            border: 4px solid var(--cl-primary);
+            opacity: 1;
+            border-radius: 50%;
+            animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        .lds-ripple div:nth-child(2) {
+            animation-delay: -0.5s;
+        }
+
+        @keyframes lds-ripple {
+            0% {
+                top: 150px;
+                left: 150px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            4.9% {
+                top: 150px;
+                left: 150px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            5% {
+                top: 100px;
+                left: 100px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading">
+        <div class="lds-ripple">
+            <h3>Loading</h3>
+            <div></div>
+            <div></div>
+            <p>0<span>%</span></p>
+        </div>
+    </div>
+    <nav class="nav">
+        <div class="nav__inner">
+        </div>
+    </nav>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <h1 class="hidden">Podiatrist</h1>
+                <img srcset="./imgpodiattrist/logo-main.png 2x" alt="">
+            </a>
+            <div class="contact">
+                <a target="_blank" href="mailto:info@Podiatrist.com.au" class="contact__email">
+                    <div class="contact__email-img">
+                        <img srcset="./imgpodiattrist/mail-icon.png 2x" alt="">
+                    </div>
+                    <div class="contact__email-text">
+                        <h3>Email: </h3>
+                        <p>info@Podiatrist.com</p>
+                    </div>
+
+                </a>
+                <a href="tel:0412 954 124" class="contact__phone">
+                    <div class="contact__phone-img">
+                        <img srcset="./imgpodiattrist/phone-icon.png 2x" alt="">
+                    </div>
+                    <div class="contact__phone-text">
+                        <h3>Phone: </h3>
+                        <p>0412 954 124</p>
+                    </div>
+
+                </a>
+            </div>
+            <div class="social">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100084745624368"
+                    class="social__fb"><img srcset="./imgpodiattrist/fb-icon.png 2x" alt=""></a>
+                <a target="_blank" href="mailto:info@Podiatrist.com.au" class="social__email"><img
+                        srcset="./imgpodiattrist/email-icon.png 2x" alt=""></a>
+                <a target="_blank" href="https://twitter.com/" class="social__tw"><img
+                        srcset="./imgpodiattrist/tw-icon.png 2x" alt=""></a>
+                <a target="_blank" href="https://www.linkedin.com/" class="social__linkend"><img
+                        srcset="./imgpodiattrist/linkend-icon.png 2x" alt=""></a>
+                <a target="_blank" href="https://www.google.com/" class="social__gg"><img
+                        srcset="./imgpodiattrist/gg-icon.png 2x" alt=""></a>
+            </div>
+            <ul class="menu">
+                <li class="menu__item"><a href="#">Home</a></li>
+                <li class="menu__item"><a href="#scservice">About Us</a></li>
+                <li class="menu__item"><a href="#scwelcome">Services</a></li>
+                <li class="menu__item"><a href="#scgallery">Gallery</a></li>
+                <li class="menu__item"><a href="#scnew">News</a></li>
+                <li class="menu__item"><a href="#screason">FAQ's</a></li>
+                <li class="menu__item"><a href="#scmanager">Testimonials</a></li>
+                <li class="menu__item"><a href="#footer">Contact</a></li>
+            </ul>
+            <div class="hamburger  ">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
+                <span class="bar bar5"></span>
+            </div>
+        </div>
+
+    </header>
+    <main class="main ">
+        <section id="schero" class="schero myparoller">
+            <div class="schero__textbox">
+                <h2 class="schero__textbox-heading">Nunc placerat nulla semper</h2>
+                <p class="schero__textbox-desc"> placerat purus ullam sem nec mi ornare </p>
+                <a href="#" class="btn__main"><span>Appointment</span></a>
+            </div>
+        </section>
+        <section id="scservice" class="scservice pd">
+            <div class="container">
+                <div class="textbox__section animate-secvice center">
+                    <h3 class="textbox__section-heading">Our Services</h3>
+                    <div class="line">
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-110.png 2x" alt=""></div>
+                        <div class="line__group">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-30.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                        </div>
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-110.png 2x" alt=""></div>
+                    </div>
+                </div>
+                <div class="scservice__list animate-secvice">
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-1.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Ingrown Nail Treatment</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-2.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Fungal Nail Advice</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-3.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Nail Cutting</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-4.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Cracked Heels</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-5.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Insoles</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                    <a href="#" class="scservice__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/service-6.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <h4 class="text__heading">Diabetic Footcare</h4>
+                            <div class="text__img"> <img srcset="./imgpodiattrist/arrow-right.png 2x" alt=""> </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="scwelcome" class="scwelcome pd">
+            <div class="container">
+                <div class="textbox__section animate-scwelcome-1 left ">
+                    <h3 class="textbox__section-heading">Welcome to Podiatrist</h3>
+                    <p class="textbox__section-desc">Nam pellentesque, felis quis euismod lacinia, velit augue imperdiet
+                        lum
+                        magna. Praesent vitae lectus sit amet sapien congue dictum id in neque. Nulla lacus ante,
+                        fermentum
+                        vitae hendrerit et, congue et eorcobortis a. </p>
+                    <p class="textbox__section-desc">Quisque vel mauris imperdiet
+                        obortis a. Quisque vel mauris imperdiet, convallis erat id, porta nisi. Nam aliquam molestie
+                        consequat. Integer imperdiet, erat eget tincidunt tempus, lacus ex interdum odioobortis a.
+                        Quisque
+                        vel mauris im Integer imperdiet erat eget tincidun</p>
+                    <a href="#" class="btn__read">
+                        <span>Read More</span>
+                        <img srcset="./imgpodiattrist/arrow-right.png 2x" alt="">
+                    </a>
+                </div>
+                <div class="scwelcome__bg animate-scwelcome-2">
+                    <img srcset="./imgpodiattrist/welcome-banner-group.png 2x" alt="">
+                </div>
+            </div>
+        </section>
+        <section id="scgallery" class="scgallery pd">
+            <div class="container">
+                <div class="scgallery__top animate-scgallery">
+                    <div class="textbox__section left">
+                        <h3 class="textbox__section-heading">Our Gallery</h3>
+                        <div class="line">
+                            <div class="line__110"><img srcset="./imgpodiattrist/line-90.png 2x" alt=""></div>
+                            <div class="line__group">
+                                <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/line-30.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                            </div>
+                            <div class="line__110"><img srcset="./imgpodiattrist/line-90.png 2x" alt=""></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn__main"><span>View All</span></a>
+                </div>
+                <div class="scgallery__list animate-scgallery">
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-1.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-1.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-2.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-2.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-3.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-3.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-4.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-4.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-5.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-5.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+                    <div class="scgallery__list-item">
+                        <a href="./imgpodiattrist/gallery-6.jpg" data-fancybox="gallery" class="img">
+                            <img src="./imgpodiattrist/gallery-6.jpg" alt="">
+                            <img srcset="./imgpodiattrist/seen.png 2x" alt="">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <section id="scteam" class="scteam pd">
+            <div class="container">
+                <div class="textbox__section animate-scteam center">
+                    <h3 class="textbox__section-heading">Our Team</h3>
+                    <div class="line">
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-70.png 2x" alt=""></div>
+                        <div class="line__group">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-30.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                        </div>
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-70.png 2x" alt=""></div>
+                    </div>
+                </div>
+                <div class="scteam__list animate-scteam">
+                    <div class="scteam__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/team-1.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="content__heading">
+                                <h4>Dr.Smile Jhon</h4>
+                            </a>
+                            <p class="content__desc"> Mbbs Doctor</p>
+                        </div>
+                    </div>
+                    <div class="scteam__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/team-2.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="content__heading">
+                                <h4>Dr.Samantha</h4>
+                            </a>
+                            <p class="content__desc"> Mbbs Doctor</p>
+                        </div>
+                    </div>
+                    <div class="scteam__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/team-3.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="content__heading">
+                                <h4>Dr.Becky</h4>
+                            </a>
+                            <p class="content__desc"> Mbbs Doctor</p>
+                        </div>
+                    </div>
+                    <div class="scteam__list-item">
+                        <div class="img">
+                            <img src="./imgpodiattrist/team-4.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="content__heading">
+                                <h4>Dr.Mike</h4>
+                            </a>
+                            <p class="content__desc"> Mbbs Doctor</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <section id="screason" class="screason pd ">
+            <div class="container">
+                <div class="textbox__section animate-screason center">
+                    <h3 class="textbox__section-heading">Why Choose Us</h3>
+                    <div class="line">
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-150.png 2x" alt=""></div>
+                        <div class="line__group">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-30.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                        </div>
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-150.png 2x" alt=""></div>
+                    </div>
+                </div>
+                <div class="screason__main animate-screason">
+                    <div class="screason__main-top">
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-1.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Emergency Care</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-2.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Operation Theater</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-3.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Qualified Doctors</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dash">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="screason__main-bottom">
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-4.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Latest Technology</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-5.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Outdoor Checkup</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__img"><img srcset="./imgpodiattrist/reason-6.png 2x" alt=""></div>
+                            <div class="item__text">
+                                <h4 class="item__text-heading">Health Facilities</h4>
+                                <p class="item__text-desc">Fusce et purus sit amet erat ferm rutrum </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scnew" class="scnew pd">
+            <div class="container">
+                <div class="textbox__section animate-screason center">
+                    <h3 class="textbox__section-heading">News</h3>
+                    <div class="line">
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-110.png 2x" alt=""></div>
+                        <div class="line__group">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-30.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/line-50.png 2x" alt="">
+                        </div>
+                        <div class="line__110"><img srcset="./imgpodiattrist/line-110.png 2x" alt=""></div>
+                    </div>
+                </div>
+                <div class="scnew__list animate-screason">
+                    <div class="scnew__list-item">
+                        <a href="#" class="img">
+                            <div class="img__main">
+                                <img src="./imgpodiattrist/new-1.jpg" alt="">
+                            </div>
+                            <div class="img__date">
+                                <p class="img__date-day">22</p>
+                                <p class="img__date-month">Feb</p>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <div class="content__control">
+                                <a href="#" class="content__control-admin" href="">By Admin</a>
+                                <a href="#" class="content__control-cmt" href="">Comments</a>
+                            </div>
+                            <a href="#" class="content__heading">
+                                <h3>Cracked Heel Treatment In Wirral</h3>
+                            </a>
+                            <p class="content__desc">Fusce et purus sit amet erat fermentum is rutrum Pellentesque
+                                pellent</p>
+                            <a href="" class="btn__read">
+                                <span>Read More</span>
+                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="scnew__list-item">
+                        <a href="#" class="img">
+                            <div class="img__main">
+                                <img src="./imgpodiattrist/new-2.jpg" alt="">
+                            </div>
+                            <div class="img__date">
+                                <p class="img__date-day">22</p>
+                                <p class="img__date-month">Feb</p>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <div class="content__control">
+                                <a href="#" class="content__control-admin" href="">By Admin</a>
+                                <a href="#" class="content__control-cmt" href="">Comments</a>
+                            </div>
+                            <a href="#" class="content__heading">
+                                <h3>Cracked Heel Treatment In Wirral</h3>
+                            </a>
+                            <p class="content__desc">Fusce et purus sit amet erat fermentum is rutrum Pellentesque
+                                pellent</p>
+                            <a href="" class="btn__read">
+                                <span>Read More</span>
+                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="scnew__list-item">
+                        <a href="#" class="img">
+                            <div class="img__main">
+                                <img src="./imgpodiattrist/new-3.jpg" alt="">
+                            </div>
+                            <div class="img__date">
+                                <p class="img__date-day">22</p>
+                                <p class="img__date-month">Feb</p>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <div class="content__control">
+                                <a href="#" class="content__control-admin" href="">By Admin</a>
+                                <a href="#" class="content__control-cmt" href="">Comments</a>
+                            </div>
+                            <a href="#" class="content__heading">
+                                <h3>Cracked Heel Treatment In Wirral</h3>
+                            </a>
+                            <p class="content__desc">Fusce et purus sit amet erat fermentum is rutrum Pellentesque
+                                pellent</p>
+                            <a href="" class="btn__read">
+                                <span>Read More</span>
+                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scmanager" class="scmanager pd">
+            <div class="container">
+                <div class="scmanager__list">
+                    <div class="scmanager__list-item">
+                        <a data-scmanager-img="1" class="avatar ">
+                            <div class="avatar__hasbg">
+                                <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                            </div>
+                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
+                        </a>
+                        <div data-scmanager-content="1" class="content">
+                            <div class="content__img">
+                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                            </div>
+                            <p class="content__idea">There are many variations of passages of Lorem Ipsum available but
+                                the
+                                majority
+                                have suffered alteration in some form injected humouror rando</p>
+                            <h3 class="content__heading">Patrick Dane</h3>
+                            <p class="content__desc"> Manager</p>
+                        </div>
+                    </div>
+                    <div class="scmanager__list-item">
+                        <a data-scmanager-img="1" class="avatar ">
+                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
+                            <div class="avatar__hasbg">
+                                <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                            </div>
+                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
+                        </a>
+                        <div data-scmanager-content="1" class="content">
+                            <div class="content__img">
+                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                            </div>
+                            <p class="content__idea">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
+                                quam aut, praesentium officia doloribus quibusdam!</p>
+                            <h3 class="content__heading">Vicky Stah</h3>
+                            <p class="content__desc"> Manager</p>
+                        </div>
+                    </div>
+                    <div class="scmanager__list-item">
+                        <a data-scmanager-img="1" class="avatar ">
+                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
+                            <div class="avatar__hasbg">
+                                <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                            </div>
+                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
+                        </a>
+                        <div data-scmanager-content="1" class="content">
+                            <div class="content__img">
+                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                            </div>
+                            <p class="content__idea">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+                                eveniet at illo tempore placeat vitae fugit pariatur quasi excepturi ipsum incidunt
+                                quisquam, voluptatibus rerum reiciendis soluta facilis blanditiis magni labore.</p>
+                            <h3 class="content__heading">Harry Kane</h3>
+                            <p class="content__desc"> Manager</p>
+                        </div>
+                    </div>
+                    <div class="scmanager__list-item">
+                        <a data-scmanager-img="1" class="avatar ">
+                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
+                            <div class="avatar__hasbg">
+                                <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
+                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                            </div>
+                        </a>
+                        <div data-scmanager-content="1" class="content">
+                            <div class="content__img">
+                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                            </div>
+                            <p class="content__idea">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Cupiditate mollitia distinctio soluta, ipsum officia voluptas at omnis maiores nostrum
+                                maxime quo voluptates obcaecati tenetur architecto.</p>
+                            <h3 class="content__heading">Jenny Flow</h3>
+                            <p class="content__desc"> Manager</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="scmanager__img animate-scmanager">
+                    <a data-scmanager-img="1" class="scmanager__img-item ">
+                        <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                    </a>
+                    <a data-scmanager-img="2" class="scmanager__img-item">
+                        <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                    </a>
+                    <a data-scmanager-img="3" class="scmanager__img-item">
+                        <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                    </a>
+                    <a data-scmanager-img="4" class="scmanager__img-item">
+                        <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
+                    </a>
+                </div>
+                <div class="scmanager__content animate-scmanager">
+                    <div data-scmanager-content="1" class="scmanager__content-item  ">
+                        <div class="img">
+                            <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                        </div>
+                        <p class="idea">There are many variations of passages of Lorem Ipsum available but the
+                            majority
+                            have suffered alteration in some form injected humouror rando</p>
+                        <h3 class="heading">Patrick Dane</h3>
+                        <p class="desc"> Manager</p>
+                    </div>
+                    <div data-scmanager-content="2" class="scmanager__content-item ">
+                        <div class="img">
+                            <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                        </div>
+                        <p class="idea">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore minima
+                            minus
+                            omnis illo aperiam laborum eum debitis ea magni eos.</p>
+                        <h3 class="heading">Marry Jane</h3>
+                        <p class="desc"> Manager</p>
+                    </div>
+                    <div data-scmanager-content="3" class="scmanager__content-item ">
+                        <div class="img">
+                            <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                        </div>
+                        <p class="idea">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique velit
+                            tenetur quidem, a, soluta ipsum voluptatibus ipsa facere debitis pariatur suscipit
+                            facilis,
+                            rem vitae dignissimos incidunt ea dolorum ut temporibus?</p>
+                        <h3 class="heading">Tommy Loop</h3>
+                        <p class="desc"> Manager</p>
+                    </div>
+                    <div data-scmanager-content="4" class="scmanager__content-item ">
+                        <div class="img">
+                            <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                        </div>
+                        <p class="idea">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora cumque
+                            iste
+                            est aperiam inventore, autem quae amet quia adipisci! Reiciendis dolorem ducimus maiores
+                            animi nulla labore saepe possimus accusantium impedit, neque ab, similique dolor
+                            quibusdam
+                            unde ex architecto iste voluptatum?</p>
+                        <h3 class="heading">S.C Jessica</h3>
+                        <P class="desc"> Manager</P>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <section id="scbrand" class="scbrand pd">
+            <div class="container">
+                <div class="scbrand__list animate-scbrand">
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-1.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-2.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-3.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-4.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-5.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-6.png 2x" alt="">
+                    </div>
+                    <div class="scbrand__list-item">
+                        <img srcset="./imgpodiattrist/brand-4.png 2x" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="footer pd">
+        <div class="container">
+            <div class="footer__form">
+                <div class="footer__form-text">
+                    <h3>Sign Up For Our Newsletter</h3>
+                    <p>If you want to stay connected, please to subcribe</p>
+                </div>
+                <form class="formemail" action="">
+                    <input placeholder="Please Enter Your Email" type="email" id="email" name="email">
+                    <div class="formemail__btn">
+                        <input type="submit" value=" ">
+                        <span>Send</span>
+                        <img srcset="./imgpodiattrist/form-btn-bg.png 2x" alt="">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__contact">
+                <h3>Contact Us</h3>
+                <a href="https://www.google.com/maps/place/CFD+Circle/@10.75844,106.6645009,15z/data=!4m6!3m5!1s0x31752f395fd1dc21:0xa0d9dc906e1f6626!8m2!3d10.7674374!4d106.6612405!16s%2Fg%2F11rjjhbxhj"
+                    class="footer__contact-location">
+                    <div class="img">
+                        <img srcset="./imgpodiattrist/location.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/location-white.png 2x" alt="">
+                    </div>
+                    <p>Level 2 unit 3/23 Blackwood
+                        Street, Mitchelton,QLD 4053</p>
+                </a>
+                <a href="mailto:info@Podiatrist.com.au" class="footer__contact-mail">
+                    <div class="img">
+                        <img srcset="./imgpodiattrist/mail-blue.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/mail-white.png 2x" alt="">
+                    </div>
+                    <p>info@Podiatrist.com.au</p>
+                </a>
+                <a href="tel:0412 954 124" class="footer__contact-phone">
+                    <div class="img">
+                        <img srcset="./imgpodiattrist/phone-blue.png 2x" alt="">
+                        <img srcset="./imgpodiattrist/phone-white.png 2x" alt="">
+                    </div>
+                    <p>0412 954 124</p>
+                </a>
+            </div>
+            <div class="footer__open">
+                <div class="footer__open-top">
+                    <img srcset="./imgpodiattrist/clock.png 2x" alt="">
+                    <h3>OPENING HOURS</h3>
+                </div>
+
+                <div class="footer__open-bottom">
+                    <div class="weekday">
+                        <span>Monday - Friday..............</span>
+                        <span>8:00am - 5:pm</span>
+                    </div>
+                    <div class="weekend">
+                        <span>Saturday - Sunday ........ </span>
+                        <span> Closed</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer__social">
+                <h3>Stay Connected</h3>
+                <div class="footer__social-list">
+                    <a target="_blank" href="https://www.facebook.com/" class="fb">
+                        <div class="fb__img">
+                            <img srcset="./imgpodiattrist/fb-blue.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/fb-white.png 2x" alt="">
+                        </div>
+                        <p>Facebook</p>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/" class="tw">
+                        <div class="tw__img">
+                            <img srcset="./imgpodiattrist/tw-blue.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/tw-white.png 2x" alt="">
+                        </div>
+                        <p>Twitter</p>
+                    </a>
+                    <a target="_blank" href="https://www.linkedin.com/" class="linkend">
+                        <div class="linkend__img">
+                            <img srcset="./imgpodiattrist/linkend-blue.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/linkend-white.png 2x" alt="">
+                        </div>
+                        <p>Linkend</p>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/" class="ins">
+                        <div class="ins__img">
+                            <img srcset="./imgpodiattrist/ins-blue.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/ins-white.png 2x" alt="">
+                        </div>
+                        <p>Instagram</p>
+                    </a>
+                </div>
+                <div class="footer__social-bottom">
+                    <a href="#">FAQs<span></span> </a>
+                    <a href="#">Blogs<span></span></a>
+                    <a href="#">Testimonials</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__bottom-img">
+                <p>© 2019 Podiatrist All Rights Reserved.</p>
+                <img srcset="./imgpodiattrist/footer-bottom.png 2x" alt="">
+            </div>
+            <p>Digital Transformation by <span>BeLocal Today</span></p>
+        </div>
+    </footer>
+    <div class="backtotop">
+        <img srcset="./imgpodiattrist/backtotop.png 3x" alt="">
+        <img srcset="./imgpodiattrist/backtotop-hascolor.png 3x" alt="">
+    </div>
+
+    <script src="./dest/jsmain.min.js"></script>
+    <script src="./dest/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--cl-blue-light);
+  @include visible(0);
+  @include transition($time);
+  &.active {
+    @include visible(1);
+    @include transition($time);
+  }
+  &__inner {
+    width: 100%;
+    height: 100%;
+    @include mid;
+    flex-direction: column;
+    gap: 20px;
+    .menu {
+      background-color: transparent;
+      border: unset;
+      position: unset;
+      transform: unset;
+      flex-direction: column;
+      &__item {
+        border: unset;
+      }
+    }
+  }
+  @include xs {
+    &__inner {
+      .menu {
+        &__item {
+          max-width: 100%;
+          border-radius: unset;
+        }
+      }
+    }
+  }
+  @include xxs {
+    &__inner {
+      gap: 5px;
+      .menu {
+        --menu-height: 50px;
+        &__item {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,476 @@
+.footer {
+  --fz-h1: 3rem;
+  --lh-h1: 2.6rem;
+
+  --fz-h2: 2.6rem;
+  --lh-h2: 2.6rem;
+
+  --fz-h4: 1.8rem;
+  --lh-h4: 2.6rem;
+
+  --fz-h3: 1.8rem;
+  --lh-h3: 3.2rem;
+
+  --fz-h5: 1.7rem;
+  --lh-h5: 4rem;
+  background-color: var(--cl-primary);
+  position: relative;
+  background: url("../imgpodiattrist/footer-bg.png") no-repeat;
+  background-color: var(--cl-primary);
+  background-position: center;
+  &.pd {
+    padding-top: 150px;
+    padding-bottom: 0px;
+  }
+  .container {
+    @include mid;
+    justify-content: space-between;
+  }
+  &__contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    h3 {
+      margin-bottom: 5px;
+      @include text(km, var(--fz-h2), var(--lh-h2), var(--cl-white), none, none);
+    }
+    &-mail,
+    &-phone,
+    &-location {
+      @include mid;
+      gap: 20px;
+      text-decoration: none;
+      justify-content: flex-start;
+      &:hover {
+        p {
+          color: var(--cl-white);
+        }
+        .img {
+          img {
+            object-fit: contain;
+            &:first-child {
+              @include visible(0);
+            }
+            &:last-child {
+              @include visible(1);
+            }
+          }
+        }
+      }
+      p {
+        @include text(dr, var(--fz-h4), var(--lh-h4), var(--cl-blue), none, none);
+        @include transition($time);
+        max-width: 230px;
+      }
+      .img {
+        position: relative;
+        img {
+          @include transition($time);
+          &:first-child {
+            @include visible(1);
+          }
+          &:last-child {
+            @include mid(false);
+            @include visible(0);
+          }
+        }
+      }
+    }
+
+    &-phone {
+      p {
+        font-family: db;
+      }
+    }
+  }
+  &__open {
+    @include mid(false);
+    border-radius: 10px;
+    border: 5px solid var(--cl-blue);
+    &-top {
+      background-color: var(--cl-blue);
+      @include mid;
+      gap: 30px;
+      padding: 6px 26px;
+      h3 {
+        @include text(km, var(--fz-h1), var(--lh-h1), var(--cl-white), none, none);
+        letter-spacing: 0.01em;
+      }
+    }
+    &-bottom {
+      padding: 22px 0 24px 20px;
+      .weekday,
+      .weekend {
+        span {
+          @include text(dr, var(--fz-h3), var(--lh-h3), var(--cl-blue), none, none);
+        }
+      }
+      .weekend {
+        span {
+          &:last-child {
+            @include text(db, var(--fz-h3), var(--lh-h3), var(--cl-white), none, none);
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  &__social {
+    max-width: 260px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    h3 {
+      @include text(km, var(--fz-h2), var(--lh-h2), var(--cl-white), none, none);
+    }
+    &-list {
+      @include mid;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      column-gap: 40px;
+      .fb,
+      .tw,
+      .ins,
+      .linkend {
+        width: calc((100% - 45px) / 2);
+        @include mid;
+        justify-content: flex-start;
+        gap: 15px;
+        text-decoration: none;
+        &:hover {
+          p {
+            color: var(--cl-white);
+          }
+          img {
+            &:first-child {
+              @include visible(0);
+            }
+            &:last-child {
+              @include visible(1);
+            }
+          }
+        }
+        p {
+          @include text(dr, var(--fz-h5), var(--lh-h5), var(--cl-blue), none, none);
+          @include transition($time);
+        }
+        &__img {
+          position: relative;
+          img {
+            @include transition($time);
+            @include visible(1);
+            &:last-child {
+              @include mid(false);
+              @include visible(0);
+            }
+          }
+        }
+      }
+      .ins {
+        &__img {
+          height: 18px;
+          width: 18px;
+          img {
+            height: 18px;
+            width: 18px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    &-bottom {
+      @include mid;
+      justify-content: initial;
+      a {
+        display: flex;
+        align-items: center;
+        @include text(dr, var(--fz-h5), var(--lh-h5), var(--cl-blue), none, none);
+        @include transition($time);
+        &:hover {
+          color: var(--cl-white);
+        }
+        span {
+          display: block;
+          height: 12px;
+          width: 1px;
+          background-color: var(--cl-blue);
+          margin: 0 14px;
+          transform: rotate(20deg);
+        }
+      }
+    }
+  }
+  .container {
+    &:first-child {
+      position: absolute;
+      left: 50%;
+      top: -21%;
+      transform: translateX(-50%);
+    }
+  }
+  &__form {
+    @include mid;
+    justify-content: space-between;
+    background-color: var(--cl-blue);
+    width: 100%;
+    padding: 62px 100px 62px 70px;
+    &-text {
+      --lh-footer: 3rem;
+      --lh-h5: 3rem;
+      h3 {
+        @include text(km, var(--fz-footer), var(--lh-footer), var(--cl-white), none, capitalize);
+      }
+      p {
+        @include text(kr, var(--fz-h5), var(--lh-h5), var(--cl-white), none, capitalize);
+      }
+    }
+    .formemail {
+      display: flex;
+      height: 56px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 40px;
+      position: relative;
+      input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        border-radius: 40px;
+        @include text(kr, var(--fz-h5), var(--lh-h5), var(--cl-black), none, none);
+        @include transition($time);
+      }
+      &__btn {
+        width: 100%;
+        height: 100%;
+        max-width: 130px;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        &:hover {
+          img {
+            @include visible(1);
+            opacity: 0.5;
+            @include transform(translate(-50%, -50%) scale(1));
+          }
+        }
+        input[type="submit"] {
+          background-color: var(--cl-primary);
+          position: absolute;
+          right: 0;
+          top: 0;
+          max-width: 130px;
+        }
+        span {
+          @include text(km, var(--fz-h4), var(--lh-h4), var(--cl-white), none, capitalize);
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          z-index: 2;
+          width: 100%;
+          text-align: center;
+          @include transition($time);
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          @include mid(false);
+          z-index: 1;
+          @include visible(0);
+          @include transition($time);
+          @include transform(translate(-50%, -50%) scale(0));
+        }
+      }
+      input[type="email"] {
+        background-color: var(--cl-white);
+        padding-left: 22px;
+        padding-right: 152px;
+        @include placeholder {
+          font-family: "kr";
+          font-size: 1.5rem;
+          line-height: 5.2rem;
+          text-decoration: none;
+          text-transform: capitalize;
+          color: var(--cl-black);
+        }
+      }
+    }
+  }
+  &__bottom {
+    @include mid;
+    border-top: 1px solid #68a942;
+    padding: 20px 0;
+    margin-top: 50px;
+
+    &-img {
+      @include mid;
+      img {
+        @include mid;
+        margin-left: 5px;
+      }
+    }
+    p {
+      @include text(dr, 1.4rem, initial, var(--cl-white), none, none);
+      span {
+        @include text(db, 1.4rem, initial, var(--cl-blue), none, none);
+        cursor: pointer;
+        position: relative;
+        &:hover {
+          &::before {
+            @include visible(1);
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1.5px;
+          background-color: var(--cl-blue);
+          @include visible(0);
+          @include transition($time);
+        }
+      }
+    }
+  }
+  @include md {
+    .container {
+      &:first-child {
+        top: -18%;
+      }
+    }
+    &__form {
+      padding: 30px;
+      height: 150px;
+    }
+    &__social {
+      &-list {
+        column-gap: 10px;
+      }
+    }
+    &__contact {
+      &-location,
+      &-phone,
+      &-mail {
+        gap: 10px;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    --fz-h1: 2.7rem;
+    --lh-h1: 2.6rem;
+
+    --fz-h2: 2.4rem;
+    --lh-h2: 2.6rem;
+
+    --fz-h4: 1.6rem;
+    --lh-h4: 2.4rem;
+
+    --fz-h3: 1.6rem;
+    --lh-h3: 3rem;
+
+    --fz-h5: 1.5rem;
+    --lh-h5: 3.7rem;
+    &__open {
+      &-top {
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  @include sm {
+    &.pd {
+      padding-top: var(--pd-section);
+    }
+    .container {
+      flex-direction: column;
+      gap: 20px;
+      &:first-child {
+        position: unset;
+        transform: unset;
+      }
+      &:nth-child(2) {
+        align-items: flex-start;
+      }
+    }
+    &__form {
+      flex-direction: column;
+      padding: 20px;
+      margin-bottom: 30px;
+      .formemail {
+        height: 40px;
+        &__btn {
+          max-width: 100px;
+        }
+      }
+    }
+    &__open {
+      position: unset;
+      transform: unset;
+    }
+    &__bottom {
+      margin-top: 30px;
+    }
+  }
+  @include xxs {
+    --fz-h1: 2.4rem;
+    --lh-h1: 2.6rem;
+
+    --fz-h2: 2.2rem;
+    --lh-h2: 2.6rem;
+
+    --fz-h4: 1.6rem;
+    --lh-h4: 2.4rem;
+
+    --fz-h3: 1.6rem;
+    --lh-h3: 3rem;
+
+    --fz-h5: 1.2rem;
+    --lh-h5: 3.4rem;
+    &__contact {
+      h3 {
+        margin-bottom: 0;
+      }
+      gap: 10px;
+    }
+    &__social {
+      gap: 10px;
+    }
+    &__open {
+      &-bottom {
+        padding: 10px 0 14px 10px;
+      }
+    }
+    &__form {
+      &-text {
+        --fz-footer: 2rem;
+        --lh-footer: 2.6rem;
+        --fz-h5: 1.2rem;
+        --lh-h5: 2.6rem;
+      }
+      .formemail {
+        input[type="email"] {
+          @include placeholder {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    &__bottom {
+      margin-top: 10px;
+      flex-direction: column;
+      gap: 3px;
+      &-img {
+      }
+    }
+  }
+}
