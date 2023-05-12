@@ -360,33 +360,6 @@ function gsapSection(){
      })
     
 }
-// Clear href 
-function preventDefaults(){
-    let btnMains = document.querySelectorAll('.btn__main');
-    let btnReads = document.querySelectorAll('.btn__read');
-    let contents = document.querySelectorAll('.content');
-    let serviceItems = document.querySelectorAll('.scservice .scservice__list-item');
-    btnMains.forEach(btnMain => {
-        btnMain.addEventListener('click',function(event){
-            event.preventDefault();
-        })
-    });
-    btnReads.forEach(btnRead => {
-        btnRead.addEventListener('click',function(event){
-            event.preventDefault();
-        })
-    });
-    contents.forEach(content => {
-        content.addEventListener('click',function(event){
-            event.preventDefault();
-        })
-    });
-    serviceItems.forEach(serviceItem => {
-        serviceItem.addEventListener('click',function(event){
-            event.preventDefault();
-        })
-    });
-}
 // Menu 
 window.addEventListener('load', function(){
 $(".myparoller").paroller({
@@ -402,7 +375,6 @@ handleNews();
 handleBrands();
 handleManager();
 gsapSection();
-preventDefaults();
 loading();
 
 })
