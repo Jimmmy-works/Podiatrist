@@ -107,7 +107,8 @@ function handleService(){
         freeScroll: false,
         wrapAround: false,
         pageDots: false,
-        prevNextButtons: false,  
+        prevNextButtons: false,
+         draggable:'>1',  
         });
     } else {
         var flktyService = new Flickity( serviceList, {
@@ -126,6 +127,7 @@ function handleService(){
             wrapAround: false,
             pageDots: false,
             prevNextButtons: false,  
+             draggable:'>1',
             });
         } else {
             var flktyService = new Flickity( serviceList, {
@@ -153,6 +155,7 @@ function handleNews(){
         wrapAround: false,
         pageDots: false,
         prevNextButtons: false,  
+         draggable:'>1',
         });
     } else {
         var flktyNews = new Flickity( newsList, {
@@ -171,6 +174,7 @@ function handleNews(){
             wrapAround: false,
             pageDots: false,
             prevNextButtons: false,  
+             draggable:'>1',
             });
         } else {
             var flktyNews = new Flickity( newsList, {
@@ -180,33 +184,37 @@ function handleNews(){
     })
 }
 // SC Manager
-function handleManager(){
-    let widthWindow = window.innerWidth;
-    var managerList = document.querySelector('.scmanager .scmanager__list');
-    var flktyManagers = new Flickity( managerList, {
-        // options
-        cellAlign: 'left',
-        contain: true,
-        freeScroll: false,
-        wrapAround: false,
-        pageDots: false,
-        prevNextButtons: true,  
-    });      
-         
-    window.addEventListener('resize',function(){
-    var flktyManagers = new Flickity( managerList, {
-        // options
-        cellAlign: 'left',
-        contain: true,
-        freeScroll: false,
-        wrapAround: false,
-        pageDots: false,
-        prevNextButtons: true,  
-        });
-    })
- 
-}
 
+function handleManager(){
+    const managerImgs = document.querySelectorAll('.scmanager .scmanager__img .scmanager__img-item');
+    const managerContents = document.querySelectorAll('.scmanager .scmanager__content .scmanager__content-item');
+        managerImgs.forEach((img) => {
+            img.addEventListener("click", function () {
+            
+              // Remove All => .active
+              managerImgs.forEach((img) => {
+                img.classList.remove("active");
+              });
+              // Add Class => .active khi click
+              img.classList.add("active");
+              // Hide All News List giống như Remove All => .active
+              managerContents.forEach((content) => {
+                content.classList.remove("active");
+              });
+              // Get data
+              // Cach 1
+              //   let dataID = img.getAttribute("data-scmanager-img");
+              // Cach 2
+              let dataID2 = img.dataset.scmanagerImg;
+        
+              // Active List number
+              let contentListActive = document.querySelector(`.scmanager__content-item-${dataID2}`);
+              contentListActive.classList.add("active");
+            });
+        });
+        
+    
+}
 //SC Brand
 function handleBrands(){
     let widthWindow = window.innerWidth;
@@ -220,22 +228,39 @@ function handleBrands(){
         pageDots: true,
         prevNextButtons: false,  
         autoPlay:1000,
+        draggable:'>1',
         });
     window.addEventListener('resize',function(){
-    var brandList = document.querySelector('.scbrand .scbrand__list');
-    var flktyBrands = new Flickity( brandList, {
-        // options
-        cellAlign: 'left',
-        contain: true,
-        freeScroll: true,
-        wrapAround: true,
-        pageDots: true,
-        prevNextButtons: false,  
-        autoPlay:1000,
-        });
+        let widthWindow = window.innerWidth;
+        if(widthWindow < 576){
+            var brandList = document.querySelector('.scbrand .scbrand__list');
+            var flktyBrands = new Flickity( brandList, {
+                // options
+                cellAlign: 'left',
+                contain: true,
+                freeScroll: false,
+                wrapAround: true,
+                pageDots: true,
+                prevNextButtons: false,  
+                draggable:'>1',
+                // autoPlay:1000,
+             });
+        } else{
+            var brandList = document.querySelector('.scbrand .scbrand__list');
+            var flktyBrands = new Flickity( brandList, {
+                // options
+                cellAlign: 'left',
+                contain: true,
+                freeScroll: true,
+                wrapAround: true,
+                pageDots: true,
+                prevNextButtons: false,  
+                autoPlay:1000,
+                draggable:'>1',
+            });
+        }
     })
 }
-
 // backtotop
 function backtotop(){
  const backToTop = document.querySelector('.backtotop');
@@ -260,7 +285,8 @@ backtotop()
 function loading(){
     let loadingPage = document.querySelector(".loading");
     let count = 0;
-    let progressNumber = document.querySelector(".lds-ripple p");
+    let progressBar = document.querySelector(".loader");
+    let progressNumber = document.querySelector(".loader__number ");
     let allImgs = document.querySelectorAll("img").length;
     let imgLoad = imagesLoaded("img");
   
@@ -273,7 +299,6 @@ function loading(){
       loadingPage.classList.add("active");
     });
 }
-
 // Gsap animation Page
 function gsapSection(){
     gsap.registerPlugin(ScrollTrigger)
@@ -335,17 +360,29 @@ function gsapSection(){
      })
     
 }
-
+// Clear href 
 function preventDefaults(){
     let btnMains = document.querySelectorAll('.btn__main');
-    let contents = document.querySelectorAll('.content')
+    let btnReads = document.querySelectorAll('.btn__read');
+    let contents = document.querySelectorAll('.content');
+    let serviceItems = document.querySelectorAll('.scservice .scservice__list-item');
     btnMains.forEach(btnMain => {
         btnMain.addEventListener('click',function(event){
             event.preventDefault();
         })
     });
+    btnReads.forEach(btnRead => {
+        btnRead.addEventListener('click',function(event){
+            event.preventDefault();
+        })
+    });
     contents.forEach(content => {
         content.addEventListener('click',function(event){
+            event.preventDefault();
+        })
+    });
+    serviceItems.forEach(serviceItem => {
+        serviceItem.addEventListener('click',function(event){
             event.preventDefault();
         })
     });

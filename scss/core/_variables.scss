@@ -114,18 +114,33 @@ $time: 0.4s;
     --header-height: 80px;
     --pd-section: 60px;
     --mg-section: 60px;
+    .main {
+      margin-top: var(--header-height);
+    }
   }
   @media screen and (max-width: $xs-max) and (orientation: landscape) {
   }
   @media (max-width: $xxs-max) {
     // Mobile Small
     --header-height: 60px;
-    --fz-h5: 1.4rem;
-    --fz-h1: 3.2rem;
-    --lh-h1: 3.6rem;
-    --fz-h2: 3.2rem;
+    --fz-h5: 1.6rem;
+    --fz-h1: 3.8rem;
+    --lh-h1: 4rem;
+    --fz-h2: 3.6rem;
     --lh-h2: 4rem;
     --pd-section: 50px;
     --mg-section: 50px;
+    .textbox__section {
+      .line {
+        gap: 10px;
+        &__110 {
+          max-width: 70px;
+        }
+      }
+    }
+
+    .nav {
+      --fz-h5: 1.8rem;
+    }
   }
 }

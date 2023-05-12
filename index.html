@@ -37,79 +37,14 @@
     <link rel="stylesheet" href="./dest/font.css">
     <link rel="stylesheet" href="./dest/stylelibs.min.css">
     <style>
-        .loading {
-            height: 100vh;
-            width: 100vw;
-            position: fixed;
-            background-color: var(--cl-blue);
-            z-index: 10000;
-        }
 
-        .lds-ripple {
-            position: relative;
-            height: 200px;
-            width: 200px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .lds-ripple div {
-            position: absolute;
-            border: 4px solid var(--cl-primary);
-            opacity: 1;
-            border-radius: 50%;
-            animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-        }
-
-        .lds-ripple div:nth-child(2) {
-            animation-delay: -0.5s;
-        }
-
-        @keyframes lds-ripple {
-            0% {
-                top: 150px;
-                left: 150px;
-                width: 0;
-                height: 0;
-                opacity: 0;
-            }
-
-            4.9% {
-                top: 150px;
-                left: 150px;
-                width: 0;
-                height: 0;
-                opacity: 0;
-            }
-
-            5% {
-                top: 100px;
-                left: 100px;
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-
-            100% {
-                top: 0px;
-                left: 0px;
-                width: 200px;
-                height: 200px;
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 
 <body>
     <div class="loading">
-        <div class="lds-ripple">
-            <h3>Loading</h3>
-            <div></div>
-            <div></div>
-            <p>0<span>%</span></p>
-        </div>
+        <span class="loader"></span>
+        <span class="loader__number">0<span>%</span></span>
     </div>
     <nav class="nav">
         <div class="nav__inner">
@@ -176,7 +111,7 @@
 
     </header>
     <main class="main ">
-        <section id="schero" class="schero myparoller">
+        <section style="background: url('./imgpodiattrist/hero-banner.jpg') ;" id="schero" class="schero myparoller">
             <div class="schero__textbox">
                 <h2 class="schero__textbox-heading">Nunc placerat nulla semper</h2>
                 <p class="schero__textbox-desc"> placerat purus ullam sem nec mi ornare </p>
@@ -271,7 +206,10 @@
                         vel mauris im Integer imperdiet erat eget tincidun</p>
                     <a href="#" class="btn__read">
                         <span>Read More</span>
-                        <img srcset="./imgpodiattrist/arrow-right.png 2x" alt="">
+                        <div class="btn__read-img">
+                            <img srcset="./imgpodiattrist/arrow-right.png 2x" alt="">
+                            <img srcset="./imgpodiattrist/arrow-right-black.png 2x" alt="">
+                        </div>
                     </a>
                 </div>
                 <div class="scwelcome__bg animate-scwelcome-2">
@@ -298,37 +236,37 @@
                 </div>
                 <div class="scgallery__list animate-scgallery">
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-1.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-1-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-1.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
                     </div>
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-2.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-2-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-2.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
                     </div>
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-3.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-3-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-3.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
                     </div>
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-4.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-4-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-4.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
                     </div>
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-5.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-5-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-5.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
                     </div>
                     <div class="scgallery__list-item">
-                        <a href="./imgpodiattrist/gallery-6.jpg" data-fancybox="gallery" class="img">
+                        <a href="./imgpodiattrist/gallery-6-full.jpg" data-fancybox="gallery" class="img">
                             <img src="./imgpodiattrist/gallery-6.jpg" alt="">
                             <img srcset="./imgpodiattrist/seen.png 2x" alt="">
                         </a>
@@ -508,7 +446,10 @@
                                 pellent</p>
                             <a href="" class="btn__read">
                                 <span>Read More</span>
-                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                <div class="btn__read-img">
+                                    <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                    <img src="./imgpodiattrist/arrow-right-double-primary.png" alt="">
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -534,7 +475,10 @@
                                 pellent</p>
                             <a href="" class="btn__read">
                                 <span>Read More</span>
-                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                <div class="btn__read-img">
+                                    <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                    <img src="./imgpodiattrist/arrow-right-double-primary.png" alt="">
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -560,7 +504,10 @@
                                 pellent</p>
                             <a href="" class="btn__read">
                                 <span>Read More</span>
-                                <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                <div class="btn__read-img">
+                                    <img src="./imgpodiattrist/arrow-right-double.png" alt="">
+                                    <img src="./imgpodiattrist/arrow-right-double-primary.png" alt="">
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -569,95 +516,8 @@
         </section>
         <section id="scmanager" class="scmanager pd">
             <div class="container">
-                <div class="scmanager__list">
-                    <div class="scmanager__list-item">
-                        <a data-scmanager-img="1" class="avatar ">
-                            <div class="avatar__hasbg">
-                                <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
-                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
-                            </div>
-                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
-                        </a>
-                        <div data-scmanager-content="1" class="content">
-                            <div class="content__img">
-                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                            </div>
-                            <p class="content__idea">There are many variations of passages of Lorem Ipsum available but
-                                the
-                                majority
-                                have suffered alteration in some form injected humouror rando</p>
-                            <h3 class="content__heading">Patrick Dane</h3>
-                            <p class="content__desc"> Manager</p>
-                        </div>
-                    </div>
-                    <div class="scmanager__list-item">
-                        <a data-scmanager-img="1" class="avatar ">
-                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
-                            <div class="avatar__hasbg">
-                                <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
-                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
-                            </div>
-                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
-                        </a>
-                        <div data-scmanager-content="1" class="content">
-                            <div class="content__img">
-                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                            </div>
-                            <p class="content__idea">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-                                quam aut, praesentium officia doloribus quibusdam!</p>
-                            <h3 class="content__heading">Vicky Stah</h3>
-                            <p class="content__desc"> Manager</p>
-                        </div>
-                    </div>
-                    <div class="scmanager__list-item">
-                        <a data-scmanager-img="1" class="avatar ">
-                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
-                            <div class="avatar__hasbg">
-                                <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
-                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
-                            </div>
-                            <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
-                        </a>
-                        <div data-scmanager-content="1" class="content">
-                            <div class="content__img">
-                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                            </div>
-                            <p class="content__idea">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                                eveniet at illo tempore placeat vitae fugit pariatur quasi excepturi ipsum incidunt
-                                quisquam, voluptatibus rerum reiciendis soluta facilis blanditiis magni labore.</p>
-                            <h3 class="content__heading">Harry Kane</h3>
-                            <p class="content__desc"> Manager</p>
-                        </div>
-                    </div>
-                    <div class="scmanager__list-item">
-                        <a data-scmanager-img="1" class="avatar ">
-                            <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-2.png 2x" alt="">
-                            <img srcset="./imgpodiattrist/manager-3.png 2x" alt="">
-                            <div class="avatar__hasbg">
-                                <img srcset="./imgpodiattrist/manager-4.png 2x" alt="">
-                                <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
-                            </div>
-                        </a>
-                        <div data-scmanager-content="1" class="content">
-                            <div class="content__img">
-                                <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                            </div>
-                            <p class="content__idea">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Cupiditate mollitia distinctio soluta, ipsum officia voluptas at omnis maiores nostrum
-                                maxime quo voluptates obcaecati tenetur architecto.</p>
-                            <h3 class="content__heading">Jenny Flow</h3>
-                            <p class="content__desc"> Manager</p>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- <div class="scmanager__img animate-scmanager">
-                    <a data-scmanager-img="1" class="scmanager__img-item ">
+                <div class="scmanager__img animate-scmanager">
+                    <a data-scmanager-img="1" class="scmanager__img-item active">
                         <img srcset="./imgpodiattrist/manager-1.png 2x" alt="">
                         <img srcset="./imgpodiattrist/manager-hover.png 2x" alt="">
                     </a>
@@ -675,79 +535,64 @@
                     </a>
                 </div>
                 <div class="scmanager__content animate-scmanager">
-                    <div data-scmanager-content="1" class="scmanager__content-item  ">
-                        <div class="img">
+                    <div class="scmanager__content-img">
+                        <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
+                    </div>
+                    <div class="scmanager__content-item scmanager__content-item-1  active">
+                        <!-- <div class="img">
                             <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                        </div>
+                        </div> -->
                         <p class="idea">There are many variations of passages of Lorem Ipsum available but the
                             majority
                             have suffered alteration in some form injected humouror rando</p>
                         <h3 class="heading">Patrick Dane</h3>
                         <p class="desc"> Manager</p>
                     </div>
-                    <div data-scmanager-content="2" class="scmanager__content-item ">
-                        <div class="img">
+                    <div class="scmanager__content-item scmanager__content-item-2 ">
+                        <!-- <div class="img">
                             <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                        </div>
-                        <p class="idea">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore minima
-                            minus
-                            omnis illo aperiam laborum eum debitis ea magni eos.</p>
+                        </div> -->
+                        <p class="idea">Generate Lorem Ipsum placeholder text. Select the number of characters, words,
+                            sentences or paragraphs, and hit generate!</p>
                         <h3 class="heading">Marry Jane</h3>
                         <p class="desc"> Manager</p>
                     </div>
-                    <div data-scmanager-content="3" class="scmanager__content-item ">
-                        <div class="img">
+                    <div class="scmanager__content-item scmanager__content-item-3 ">
+                        <!-- <div class="img">
                             <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                        </div>
-                        <p class="idea">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique velit
-                            tenetur quidem, a, soluta ipsum voluptatibus ipsa facere debitis pariatur suscipit
-                            facilis,
-                            rem vitae dignissimos incidunt ea dolorum ut temporibus?</p>
+                        </div> -->
+                        <p class="idea">Adipiscing vitae proin sagittis nisl rhoncus mattis. Morbi tempus iaculis urna
+                            id volutpat lacus. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Amet volutpat
+                            consequat mauris nunc congue</p>
                         <h3 class="heading">Tommy Loop</h3>
                         <p class="desc"> Manager</p>
                     </div>
-                    <div data-scmanager-content="4" class="scmanager__content-item ">
-                        <div class="img">
+                    <div class="scmanager__content-item scmanager__content-item-4 ">
+                        <!-- <div class="img">
                             <img srcset="./imgpodiattrist/manager-decor.png 2x" alt="">
-                        </div>
-                        <p class="idea">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora cumque
-                            iste
-                            est aperiam inventore, autem quae amet quia adipisci! Reiciendis dolorem ducimus maiores
-                            animi nulla labore saepe possimus accusantium impedit, neque ab, similique dolor
-                            quibusdam
-                            unde ex architecto iste voluptatum?</p>
-                        <h3 class="heading">S.C Jessica</h3>
+                        </div> -->
+                        <p class="idea">Accumsan sit amet nulla facilisi. Etiam non quam lacus suspendisse faucibus
+                            interdum posuere lorem. Cras ornare arcu dui vivamus arcu. Odio ut enim blandit volutpat
+                            maecenas volutpat blandit</p>
+                        <h3 class="heading">Jessica</h3>
                         <P class="desc"> Manager</P>
                     </div>
-                </div> -->
+                </div>
             </div>
         </section>
         <section id="scbrand" class="scbrand pd">
             <div class="container">
-                <div class="scbrand__list animate-scbrand">
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-1.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-2.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-3.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-4.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-5.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-6.png 2x" alt="">
-                    </div>
-                    <div class="scbrand__list-item">
-                        <img srcset="./imgpodiattrist/brand-4.png 2x" alt="">
-                    </div>
+                <div class="scbrand__list">
+                    <img srcset="./imgpodiattrist/brand-1.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-2.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-3.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-4.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-5.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-6.png 2x" alt="">
+                    <img srcset="./imgpodiattrist/brand-5.png 2x" alt="">
                 </div>
             </div>
+
         </section>
     </main>
     <footer id="footer" class="footer pd">
@@ -760,9 +605,9 @@
                 <form class="formemail" action="">
                     <input placeholder="Please Enter Your Email" type="email" id="email" name="email">
                     <div class="formemail__btn">
-                        <input type="submit" value=" ">
-                        <span>Send</span>
-                        <img srcset="./imgpodiattrist/form-btn-bg.png 2x" alt="">
+                        <button type="submit">
+                            <span>Send</span>
+                            <img srcset="./imgpodiattrist/form-btn-bg.png 2x" alt="">
                     </div>
                 </form>
             </div>

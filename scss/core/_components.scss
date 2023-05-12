@@ -199,36 +199,39 @@
     @include text(db, var(--fz-h4), var(--lh-h4), var(--cl-primary), none, none);
     @include mid;
     gap: 7px;
+
     span {
       position: relative;
       overflow: hidden;
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 3px;
-        left: 0;
-        height: 1.5px;
-        width: 100%;
-        background-color: var(--cl-primary);
+      @include transition($time);
+    }
+    &-img {
+      position: relative;
+      img {
         @include transition($time);
-        @include visible(0);
+        &:first-child {
+          @include visible(1);
+        }
+        &:last-child {
+          @include mid(false);
+          @include visible(0);
+        }
       }
     }
     &:hover {
       span {
-        &::before {
-          @include visible(1);
+        color: var(--cl-black);
+      }
+      .btn__read-img {
+        img {
+          &:first-child {
+            @include visible(0);
+          }
+          &:last-child {
+            @include visible(1);
+          }
         }
       }
-      img {
-        @include transform(translateX(100%));
-        @include visible(0);
-      }
-    }
-    img {
-      @include transition($time);
-      @include transform(translateX(0));
-      @include visible(1);
     }
   }
 }

@@ -16,7 +16,6 @@
     z-index: 2;
     top: 20px;
     left: 50%;
-
     transform: translateX(-50%);
   }
   .logo {
@@ -77,9 +76,6 @@
       }
     }
   }
-  .container-fluid {
-  }
-
   @include md {
     .contact {
       gap: 50px;
@@ -106,7 +102,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--cl-blue);
+    background-color: var(--cl-bg-sc);
+
     .logo {
       height: 50px;
     }

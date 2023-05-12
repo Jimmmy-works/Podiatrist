@@ -257,12 +257,15 @@
             @include transform(translate(-50%, -50%) scale(1));
           }
         }
-        input[type="submit"] {
-          background-color: var(--cl-primary);
-          position: absolute;
-          right: 0;
-          top: 0;
-          max-width: 130px;
+        button {
+          background: var(--cl-primary);
+          height: 100%;
+          width: 100%;
+          outline: none;
+          border: none;
+          border-radius: 40px;
+          padding: unset;
+          cursor: pointer;
         }
         span {
           @include text(km, var(--fz-h4), var(--lh-h4), var(--cl-white), none, capitalize);
@@ -420,6 +423,11 @@
     &__bottom {
       margin-top: 30px;
     }
+    &__contact {
+      p {
+        max-width: initial;
+      }
+    }
   }
   @include xxs {
     --fz-h1: 2.4rem;
@@ -434,7 +442,7 @@
     --fz-h3: 1.6rem;
     --lh-h3: 3rem;
 
-    --fz-h5: 1.2rem;
+    --fz-h5: 1.6rem;
     --lh-h5: 3.4rem;
     &__contact {
       h3 {
@@ -443,7 +451,7 @@
       gap: 10px;
     }
     &__social {
-      gap: 10px;
+      gap: 5px;
     }
     &__open {
       &-bottom {
