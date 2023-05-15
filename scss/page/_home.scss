@@ -3,11 +3,11 @@
   .schero {
     position: relative;
     height: calc(100vh - var(--header-height));
+    background: url(../imgpodiattrist/hero-banner.jpg) no-repeat;
+    background-size: cover;
     width: 100%;
     top: 0;
     left: 0;
-    background-repeat: no-repeat !important;
-
     &__textbox {
       @include mid;
       flex-direction: column;
@@ -23,8 +23,7 @@
         margin-top: 25px;
       }
     }
-    @media screen and (min-width: 1900px) {
-      background-size: 120% !important;
+    @include minW(1920px) {
     }
     @media screen and (max-width: 1024px) {
       height: calc(70vh - var(--header-height));
@@ -61,7 +60,6 @@
       }
     }
     @include xxs {
-      background-size: cover !important;
       .btn__main {
         --fz-h4: 1.3rem;
         padding: 0 15px;

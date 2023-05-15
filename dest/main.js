@@ -363,7 +363,6 @@ function gsapSection(){
 // Menu 
 window.addEventListener('load', function(){
 $(".myparoller").paroller({
-  factorXs: 0.2,
   factor: 0.5,
 });    
 handleNav();
