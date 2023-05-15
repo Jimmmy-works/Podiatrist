@@ -3,8 +3,6 @@
   .schero {
     position: relative;
     height: calc(100vh - var(--header-height));
-    background: url(../imgpodiattrist/hero-banner.jpg) no-repeat;
-    background-size: cover;
     width: 100%;
     top: 0;
     left: 0;
@@ -885,20 +883,21 @@
     &__content {
       max-width: 666px;
       margin: 34px auto 0;
-      padding-top: 20px;
+      // padding-top: 20px;
       text-align: center;
       position: relative;
-      overflow: hidden;
       &-img {
         @include mid(false);
-        top: 42%;
       }
       &-item {
-        height: 0;
+        height: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
         @include visible(0);
         @include transition($time);
         &.active {
-          height: 140px;
+          position: unset;
           @include visible(1);
         }
 

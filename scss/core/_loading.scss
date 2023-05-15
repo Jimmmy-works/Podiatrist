@@ -30,11 +30,11 @@
     transform: rotate(0deg);
     animation: rotation 3s linear infinite;
     position: relative;
-
     &__number,
+    &__text,
     span {
-      font-family: km;
-      font-size: 2rem;
+      font-family: kr;
+      font-size: var(--fz-h4);
       line-height: 3rem;
       color: var(--cl-primary);
     }
@@ -46,6 +46,7 @@
     }
   }
   @include xxs {
+    --fz-h4: 1.6rem;
     .loader {
       border: 3px solid #fff;
       border-top-color: var(--cl-primary);

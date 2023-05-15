@@ -218,18 +218,33 @@ function handleManager(){
 //SC Brand
 function handleBrands(){
     let widthWindow = window.innerWidth;
-    var brandList = document.querySelector('.scbrand .scbrand__list');
-    var flktyBrands = new Flickity( brandList, {
-        // options
-        cellAlign: 'left',
-        contain: true,
-        freeScroll: true,
-        wrapAround: true,
-        pageDots: true,
-        prevNextButtons: false,  
-        autoPlay:1000,
-        draggable:'>1',
+    if(widthWindow < 576){
+        var brandList = document.querySelector('.scbrand .scbrand__list');
+        var flktyBrands = new Flickity( brandList, {
+            // options
+            cellAlign: 'left',
+            contain: true,
+            freeScroll: false,
+            wrapAround: true,
+            pageDots: true,
+            prevNextButtons: false,  
+            draggable:'>1',
+            // autoPlay:1000,
+         });
+    } else{
+        var brandList = document.querySelector('.scbrand .scbrand__list');
+        var flktyBrands = new Flickity( brandList, {
+            // options
+            cellAlign: 'left',
+            contain: true,
+            freeScroll: true,
+            wrapAround: true,
+            pageDots: true,
+            prevNextButtons: false,  
+            autoPlay:1000,
+            draggable:'>1',
         });
+    }
     window.addEventListener('resize',function(){
         let widthWindow = window.innerWidth;
         if(widthWindow < 576){
